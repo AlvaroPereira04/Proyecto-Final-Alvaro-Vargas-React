@@ -5,7 +5,6 @@ import { AuthContext } from "../../context/AuthContext";
 import Btn from "../Btn/Btn";
 import CartWidget from "../CartWidget/CartWidget";
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
-import LoginIcon from "./NavIcons/LoginIcon";
 import DropdownUser from "../DropdownUser/DropdownUser";
 
 const NavStyle =
@@ -40,14 +39,7 @@ const NavBar = () => {
               <DropdownUser />
             ) : (
               <>
-                <NavLink to="/login">
-                  <div className="text-slate-600 hover:text-slate-50 hover:bg-indigo-400/70 group flex flex-row w-full items-center rounded-md px-2 py-3 text-sm md:text-base">
-                    <button className="flex">
-                      <LoginIcon className={"ml-1 mr-2 text-indigo-600/90"} />
-                      Login
-                    </button>
-                  </div>
-                </NavLink>
+                
               </>
             )}
           </div>
@@ -62,19 +54,19 @@ const NavBar = () => {
           <Btn className={NavStyle}>PS5</Btn>
         </NavLink>
         <NavLink
-          to="/category/XBOX X"
+          to="/category/XBOX"
           className={({ isActive }) => (isActive ? NavActiveStyle : "")}
         >
           <Btn className={NavStyle}>XBOX Serie X</Btn>
         </NavLink>
         <NavLink
-          to="/category/NINTENDO SWITCH"
+          to="/category/Nintendo Switch"
           className={({ isActive }) => (isActive ? NavActiveStyle : "")}
         >
           <Btn className={NavStyle}>NINTENDO SWITCH</Btn>
         </NavLink>
         <NavLink
-          to="/category/Ps4"
+          to="/category/PS4"
           className={({ isActive }) => (isActive ? NavActiveStyle : "")}
         >
           <Btn className={NavStyle}>PS4</Btn>

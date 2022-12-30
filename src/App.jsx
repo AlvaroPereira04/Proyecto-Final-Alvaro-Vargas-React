@@ -11,7 +11,6 @@ import Cart from "./components/Cart/Cart";
 import OrderStatus from "./components/OrderStatus/OrderStatus";
 import Checkout from "./components/Checkout/Checkout";
 import SignUp from "./components/SignUp/SignUp";
-import Login from "./components/Login/Login";
 import UserOrders from "./components/UserOrders/UserOrders";
 
 import { CartContextProvider } from "./context/CartContext";
@@ -38,7 +37,6 @@ function App() {
                 element={<ItemDetailContainer />}
               />
               <Route path="/cart" element={<Cart />} />
-              <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/order/:orderId" element={<OrderStatus />} />
