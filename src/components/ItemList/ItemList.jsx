@@ -23,6 +23,7 @@ const ItemList = () => {
         )
       : query(
           collection(db, "Gaming"),
+          orderBy("category"),
           orderBy("price", "asc")
         );
 
