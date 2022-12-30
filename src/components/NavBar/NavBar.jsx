@@ -5,7 +5,6 @@ import { AuthContext } from "../../context/AuthContext";
 import Btn from "../Btn/Btn";
 import CartWidget from "../CartWidget/CartWidget";
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
-import DropdownUser from "../DropdownUser/DropdownUser";
 
 const NavStyle =
   "hover:bg-slate-400 hover:border-slate-400 hover:shadow-slate-400 rounded-md font-serif text-lg py-3 px-2 hover:shadow-lg transition-all duration-300 mx-1 tracking-widest";
@@ -36,7 +35,7 @@ const NavBar = () => {
           </NavLink>
           <div className="px-1 py-1 flex flex-col sm:flex-row sm:gap-2 font-serif">
             {user ? (
-              <DropdownUser />
+              <DropdownMenu />
             ) : (
               <>
                 

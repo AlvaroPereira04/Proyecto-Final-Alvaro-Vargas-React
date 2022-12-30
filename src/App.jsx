@@ -1,8 +1,6 @@
 import React from "react";
 import "./App.css";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
@@ -10,9 +8,7 @@ import Footer from "./components/Footer/Footer";
 import Cart from "./components/Cart/Cart";
 import OrderStatus from "./components/OrderStatus/OrderStatus";
 import Checkout from "./components/Checkout/Checkout";
-import SignUp from "./components/SignUp/SignUp";
 import UserOrders from "./components/UserOrders/UserOrders";
-
 import { CartContextProvider } from "./context/CartContext";
 import { AuthProvider } from "./context/AuthContext";
 
@@ -37,7 +33,6 @@ function App() {
                 element={<ItemDetailContainer />}
               />
               <Route path="/cart" element={<Cart />} />
-              <Route path="/signup" element={<SignUp />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/order/:orderId" element={<OrderStatus />} />
               <Route path="/userorders" element={<UserOrders />} />
