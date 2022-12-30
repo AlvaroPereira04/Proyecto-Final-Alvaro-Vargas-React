@@ -12,7 +12,6 @@ import Loading from "../Loading/Loading";
 
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import { AuthContext } from "../../context/AuthContext";
 
 import { getDoc, doc, getDocs, collection } from "firebase/firestore";
 import { db } from "../../services/firebase/firebaseconfig";
@@ -24,7 +23,6 @@ const ItemDetail = () => {
   const [partsId, setPartsId] = useState([]);
 
   const { addToCart } = useContext(CartContext);
-  const { user } = useContext(AuthContext);
 
   let { productId } = useParams();
 
@@ -114,36 +112,7 @@ const ItemDetail = () => {
     return <Loading />;
   }
 
-  const userCheckForBuying = () => {
-    if (user) {
-      return (
-        <>
-          {cartEmpty ? (
-            <ItemCount initial={1} stock={part.stock} onAdd={handleOnAdd} />
-          ) : (
-            <>
-              <Link to={`/`}>
-                <Btn className="font-sans font-light text-lg text-slate-50 bg-indigo-600 p-2 rounded-md m-3 py-2 hover:bg-indigo-700 transition-all w-36 md:w-36 lg:w-40 shadow-md">
-                  Seguir comprando
-                </Btn>
-              </Link>
-              <Link to={`/cart`}>
-                <Btn className="font-sans font-light text-lg text-slate-50 bg-indigo-600 p-2 rounded-md m-3 py-2 hover:bg-indigo-700 transition-all w-36 md:w-36 lg:w-40 shadow-md">
-                  Dirigirse al carrito
-                </Btn>
-              </Link>
-            </>
-          )}
-        </>
-      );
-    } else {
-      return (
-        <h1 className="p-2 md:p-4 lg:p-8 font-serif text-base sm:text-lg md:text-xl lg:text-2xl font-extralight leading-normal text-indigo-50 uppercase">
-          Debes loguearte para comprar
-        </h1>
-      );
-    }
-  };
+ 
 
   return (
     <>
@@ -184,7 +153,22 @@ const ItemDetail = () => {
                   $ {part.price}
                 </p>
               </div>
-              {userCheckForBuying()}
+              {cartEmpty ? (
+            <ItemCount initial={1} stock={part.stock} onAdd={handleOnAdd} />
+          ) : (
+            <>
+              <Link to={`/`}>
+                <Btn className="font-sans font-light text-lg text-slate-50 bg-indigo-600 p-2 rounded-md m-3 py-2 hover:bg-indigo-700 transition-all w-36 md:w-36 lg:w-40 shadow-md">
+                  Seguir comprando
+                </Btn>
+              </Link>
+              <Link to={`/cart`}>
+                <Btn className="font-sans font-light text-lg text-slate-50 bg-indigo-600 p-2 rounded-md m-3 py-2 hover:bg-indigo-700 transition-all w-36 md:w-36 lg:w-40 shadow-md">
+                  Dirigirse al carrito
+                </Btn>
+              </Link>
+            </>
+          )}
             </div>
           </div>
         </div>

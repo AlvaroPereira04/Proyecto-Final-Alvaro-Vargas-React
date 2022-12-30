@@ -2,7 +2,6 @@ import { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { CartContext } from "../../context/CartContext";
-import { AuthContext } from "../../context/AuthContext";
 
 import Loading from "../Loading/Loading";
 import Btn from "../Btn/Btn";
@@ -28,7 +27,6 @@ const Checkout = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const { cart, clearList, total, isCartEmpty } = useContext(CartContext);
-  const { user } = useContext(AuthContext);
   const goTo = useNavigate();
 
   const MySwal = withReactContent(Swal);
@@ -80,7 +78,6 @@ const Checkout = () => {
   };
 
   const sendOrder = async (data) => {
-    data.email = user.email;
     try {
       const itemsDb = cart.map((item) => ({
         id: item.id,
@@ -101,7 +98,7 @@ const Checkout = () => {
 
       const cartProductsIds = cart.map((prod) => prod.id);
       const productsRef = query(
-        collection(db, "pcParts"),
+        collection(db, "Gaming"),
         where(documentId(), "in", cartProductsIds)
       );
       const cartProductsDB = await getDocs(productsRef);
